@@ -5,6 +5,13 @@ module.exports = (grunt) ->
   grunt.initConfig
 
     ####
+    # watch
+    ####
+    watch:
+        files: ["src/**/*", "Gruntfile.coffee", ".jshintrc"]
+        tasks: ["jshint"]
+
+    ####
     # jshint
     ####
     jshint:
@@ -28,5 +35,7 @@ module.exports = (grunt) ->
           verbose: false
           cleanTargetDir: true
           cleanBowerDir: true
+
+  grunt.registerTask "run", ["watch"]
 
   require("matchdep").filterDev("grunt-*").forEach grunt.loadNpmTasks
