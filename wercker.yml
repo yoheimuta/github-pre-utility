@@ -1,0 +1,35 @@
+box: wercker/ubuntu12.04-webessentials@1.0.4
+
+build:
+  steps:
+    - script:
+        name: Print versions
+        code: |
+          sudo npm -v
+          sudo node -v
+
+    - script:
+        name: Install grunt and bower globally
+        code: |
+          sudo npm install -g grunt-cli
+          sudo npm install -g bower
+
+    - script:
+        name: Install node modules
+        code: |
+          sudo npm install
+
+    - script:
+        name: Install bower components
+        code: |
+          grunt bower:install
+
+  after-steps:
+    - wantedly/pretty-slack-notify:
+        webhook_url: https://hooks.slack.com/services/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
+
+deploy:
+    steps:
+        - lukevivier/gh-pages:
+            token: $GITHUB_TOKEN
+            basedir: ./src
