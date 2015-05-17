@@ -1,0 +1,19 @@
+{
+  "name": "GitHub Pre Utility",
+  "manifest_version": 2,
+  "version": "0.0.1",
+  "description": "",
+  "homepage_url": "https://github.com/yoheimuta/github-pre-utility",
+  "icons": {
+    "128": "pre_icon.png"
+  },
+  "content_scripts": [{
+    "matches": [ "https://github.com/*" ],
+    "js": [ "vendor/jquery/jquery.min.js", "inject.js" ],
+    "css": [ "inject.css" ]
+  }],
+  "web_accessible_resources": [
+    "toggle_pre.js",
+    "vendor/jquery/jquery.min.map"
+   ]
+}
