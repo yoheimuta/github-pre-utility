@@ -9,11 +9,14 @@
   },
   "content_scripts": [{
     "matches": [ "https://github.com/*" ],
-    "js": [ "vendor/jquery/jquery.min.js", "inject.js" ],
+    "js": [
+      "vendor/jquery/jquery.min.js",
+      "vendor/jquery-collapser/jquery.collapser.min.js",
+      "toggle_pre.js"
+    ],
     "css": [ "inject.css" ]
   }],
   "web_accessible_resources": [
-    "toggle_pre.js",
     "vendor/jquery/jquery.min.map"
    ]
 }

@@ -28,7 +28,7 @@ module.exports = (grunt) ->
     watch:
         options:
             livereload: LIVERELOAD_PORT
-        files: ["src/**/*", "Gruntfile.coffee", ".jshintrc"]
+        files: ["src/**/*", "Gruntfile.coffee", ".jshintrc", "package.json", "bower.json"]
         tasks: ["jshint"]
 
     ####
@@ -37,6 +37,7 @@ module.exports = (grunt) ->
     jshint:
         files:[
             "package.json"
+            "bower.json"
             ".jshintrc"
             "src/**/*.js"
             "!src/vendor/**/*.js"
@@ -57,6 +58,6 @@ module.exports = (grunt) ->
           cleanTargetDir: true
           cleanBowerDir: true
 
-  grunt.registerTask "run", ["connect:dev", "watch"]
+  grunt.registerTask "run", ["jshint", "connect:dev", "watch"]
 
   require("matchdep").filterDev("grunt-*").forEach grunt.loadNpmTasks

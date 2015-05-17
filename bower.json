@@ -2,14 +2,20 @@
   "name": "github-pre-utility",
   "version": "0.0.1",
   "license": "MIT",
-  "devDependencies": {
-    "jquery": "~2.1.3"
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "jquery-collapser": "vaakash/jquery-collapser#2.0.0"
   },
   "exportsOverride": {
     "jquery": {
       "": [
         "dist/*.js",
         "dist/*.map"
+      ]
+    },
+    "jquery-collapser": {
+      "": [
+        "*.js"
       ]
     }
   }

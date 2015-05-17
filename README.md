@@ -5,3 +5,7 @@
 [wercker]: https://app.wercker.com/project/bykey/07449a9cbfed0c4e758316f792c19909
 
 Chrome Extension.
+
+### Demo
+
+http://yoheimuta.github.io/github-pre-utility

@@ -1,23 +1,37 @@
-window.ChromeExtensionPreWrap = {
+var ChromeExtensionPreWrap = window.ChromeExtensionPreWrap = window.ChromeExtensionPreWrap || {};
 
-  keydownEvent: function() {
-
+ChromeExtensionPreWrap.KeydownEvent = (function() {
     $(window).keydown(function(e){
         // r key
-        if (e.keyCode != 82) {
-            return true;
+        if (e.keyCode == 82) {
+            wrap();
         }
-
-        toggleCss("pre");
-        toggleCss("code");
+        // t key
+        if (e.keyCode == 84) {
+            collapse();
+        }
 
         return true;
     });
 
-    function toggleCss(element) {
-        $(element).toggleClass("chrome_extension_pre_wrap");
+    function wrap() {
+        var class_name = "chrome_extension_pre_wrap";
+        toggleCss("pre", class_name);
+        toggleCss("code", class_name);
     }
-  }
-};
 
-ChromeExtensionPreWrap.keydownEvent();
+    function collapse() {
+        var class_name = "chrome_extension_pre_collapse";
+        toggleCss("pre", class_name);
+
+        // TODO: not toggle
+        $(".chrome_extension_pre_collapse").collapser({
+            mode: "chars",
+            truncate: 240
+        });
+    }
+
+    function toggleCss(element, class_name) {
+        $(element).toggleClass(class_name);
+    }
+})();
