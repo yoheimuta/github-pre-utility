@@ -8,14 +8,14 @@ window.ChromeExtensionPreWrap = {
             return true;
         }
 
-        toggleCss('pre');
-        toggleCss('code');
+        toggleCss("pre");
+        toggleCss("code");
 
         return true;
     });
 
     function toggleCss(element) {
-        $(element).toggleClass('chrome_extension_pre_wrap');
+        $(element).toggleClass("chrome_extension_pre_wrap");
     }
   }
 };

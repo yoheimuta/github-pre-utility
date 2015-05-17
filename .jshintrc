@@ -1,0 +1,20 @@
+{
+    "indent": 4,
+    "undef": true,
+    "unused": true,
+    "newcap": true,
+    "quotmark": "double",
+    "trailing": true,
+    "laxbreak": false,
+    "funcscope": false,
+    "node": true,
+    "devel": false,
+    "jquery": false,
+    "browser": true,
+    "globals": {
+        "chrome": true,
+        "$": true,
+        "ChromeExtensionPreWrap": true
+    },
+    "es3": true
+}
