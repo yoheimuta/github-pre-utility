@@ -27,7 +27,7 @@ ChromeExtensionPreWrap.KeydownEvent = (function() {
         // TODO: not toggle
         $(".chrome_extension_pre_collapse").collapser({
             mode: "chars",
-            truncate: 240
+            truncate: 80
         });
     }
 

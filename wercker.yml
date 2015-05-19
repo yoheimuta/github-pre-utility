@@ -26,7 +26,7 @@ build:
 
   after-steps:
     - wantedly/pretty-slack-notify:
-        webhook_url: https://hooks.slack.com/services/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
+        webhook_url: $SLACK_WEBHOOKS_URL
 
 deploy:
     steps:
