@@ -12,7 +12,7 @@ Enabled to read github issues and gists with long comments without horizontal an
 
 ### Chrome Extension
 
-Install from https://chrome.google.com/webstore/detail/github-pre-utility/ohbmbjnjnkbfnmilcpklobimhkbdcdjl?hl=ja&gl=JP.
+Install from https://chrome.google.com/webstore/detail/github-pre-utility/ohbmbjnjnkbfnmilcpklobimhkbdcdjl.
 
 This extension uses the keys `r` to wrap pre/code tag and `t` to collapse pre tag.
 
