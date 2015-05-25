@@ -16,6 +16,8 @@ Install from https://chrome.google.com/webstore/detail/github-pre-utility/ohbmbj
 
 This extension uses the keys `r` to wrap pre/code tag and `t` to collapse pre tag.
 
+- You can switch to work automatically (= without a key down) wrap and collapse with options page.
+
 ### Demo
 
 http://yoheimuta.github.io/github-pre-utility

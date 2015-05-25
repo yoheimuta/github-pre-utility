@@ -1,7 +1,7 @@
 {
   "name": "GitHub Pre Utility",
   "manifest_version": 2,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "homepage_url": "https://github.com/yoheimuta/github-pre-utility",
   "icons": {
