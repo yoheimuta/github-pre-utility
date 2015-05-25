@@ -12,10 +12,16 @@
     "js": [
       "vendor/jquery/jquery.min.js",
       "vendor/jquery-collapser/jquery.collapser.min.js",
+      "main.js",
       "toggle_pre.js"
     ],
     "css": [ "inject.css" ]
   }],
+  "background": {
+      "scripts": ["background.js"],
+      "persistent": false
+  },
+  "options_page": "options.html",
   "web_accessible_resources": [
     "vendor/jquery/jquery.min.map"
    ]
