@@ -34,6 +34,7 @@ ChxGithubPreUtility.Controller = (function() {
     }
 
     var Controller = {};
+    var collapse_char_length = 80;
 
     Controller.wrap = function() {
         var class_name = "chrome_extension_pre_wrap";
@@ -48,7 +49,7 @@ ChxGithubPreUtility.Controller = (function() {
         // TODO: not toggle
         $(".chrome_extension_pre_collapse").collapser({
             mode: "chars",
-            truncate: 80
+            truncate: collapse_char_length
         });
     };
 
@@ -63,12 +64,19 @@ ChxGithubPreUtility.Controller = (function() {
             }
         });
 
-        chrome.runtime.sendMessage({method: "getLocalStorage", key: "collapse"}, function(res) {
-            if (res.data == "auto") {
-                that.collapse();
-            } else {
-                ChxGithubPreUtility.KeydownEvent.startCollapse();
+        chrome.runtime.sendMessage({method: "getLocalStorage", key: "collapse_char_length"}, function(res) {
+            var length = res.data;
+            if (length && 0 < length) {
+                collapse_char_length = length;
             }
+
+            chrome.runtime.sendMessage({method: "getLocalStorage", key: "collapse"}, function(res) {
+                if (res.data == "auto") {
+                    that.collapse();
+                } else {
+                    ChxGithubPreUtility.KeydownEvent.startCollapse();
+                }
+            });
         });
     };
 

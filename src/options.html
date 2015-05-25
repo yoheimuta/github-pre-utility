@@ -5,27 +5,30 @@
 <body style="display:block; width:50%; margin: auto;">
   <h2>github-pre-utility options page</h2>
   <h3>Switch to work automatically</h3>
-<table>
-  <tr>
-    <td> wrap </td>
-    <td>
-      <select name="wrap">
-       <option value="auto">auto</option>
-       <option value="manual" selected>manual</option>
-      </select>
-    </td>
-  </tr>
-  <tr>
-    <td> collapse </td>
-    <td>
-      <select name="collapse">
-       <option value="auto">auto</option>
-       <option value="manual" selected>manual</option>
-      </select>
-    </td>
-  </tr>
-</table>
-<br>
+  <table>
+    <tr>
+      <td> wrap </td>
+      <td>
+        <select name="wrap">
+         <option value="auto">auto</option>
+         <option value="manual" selected>manual</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td> collapse </td>
+      <td>
+        <select name="collapse">
+         <option value="auto">auto</option>
+         <option value="manual" selected>manual</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+  <h3>Character length to collapse</h3>
+  <input id="collapse_char_length" type="number" value="80" />
+  <br/>
+<br/>
 <div id="status"></div>
 <button id="save">Save</button>
 </body>
