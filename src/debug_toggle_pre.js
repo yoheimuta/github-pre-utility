@@ -1,3 +1,5 @@
-var ChxGithubPreUtility = window.ChxGithubPreUtility = window.ChxGithubPreUtility || {};
-ChxGithubPreUtility.KeydownEvent.startWrap();
-ChxGithubPreUtility.KeydownEvent.startCollapse();
+$(function(){
+    var ChxGithubPreUtility = window.ChxGithubPreUtility = window.ChxGithubPreUtility || {};
+    ChxGithubPreUtility.KeydownEvent.startWrap(82);
+    ChxGithubPreUtility.KeydownEvent.startCollapse(84);
+});

@@ -1,2 +1,4 @@
-var ChxGithubPreUtility = window.ChxGithubPreUtility = window.ChxGithubPreUtility || {};
-ChxGithubPreUtility.Controller.run();
+$(function(){
+    var ChxGithubPreUtility = window.ChxGithubPreUtility = window.ChxGithubPreUtility || {};
+    ChxGithubPreUtility.Controller.run();
+});
