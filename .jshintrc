@@ -14,7 +14,7 @@
     "globals": {
         "chrome": true,
         "$": true,
-        "ChromeExtensionPreWrap": true
+        "JSON": true
     },
     "es3": true
 }

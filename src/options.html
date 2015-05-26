@@ -1,0 +1,47 @@
+<html>
+<head>
+  <title>github-pre-utility options page</title>
+</head>
+<body style="display:block; width:50%; margin: auto;">
+<h2>github-pre-utility options page</h2>
+  <h3>Switch to work automatically</h3>
+  <table>
+    <tr>
+      <td> wrap </td>
+      <td>
+        <select name="wrap">
+         <option value="auto">auto</option>
+         <option value="manual" selected>manual</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td> collapse </td>
+      <td>
+        <select name="collapse">
+         <option value="auto">auto</option>
+         <option value="manual" selected>manual</option>
+        </select>
+      </td>
+    </tr>
+  </table>
+
+  <h3>Character length to collapse</h3>
+  <input id="collapse_char_length" type="number" value="80" />
+  <br/>
+
+  <h3>Key code to wrap (work only in manual)</h3>
+  <input id="wrap_key_code" type="number" value="82" />
+  <br/>
+
+  <h3>Key code to collapse (work only in manual)</h3>
+  <input id="collapse_key_code" type="number" value="84" />
+  <br/>
+
+<br/>
+<div id="status"></div>
+<button id="save">Save</button>
+</body>
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="options.js"></script>
+</html>

@@ -1,4 +1,5 @@
 $(function(){
     var ChxGithubPreUtility = window.ChxGithubPreUtility = window.ChxGithubPreUtility || {};
-    ChxGithubPreUtility.Controller.run();
+    ChxGithubPreUtility.KeydownEvent.startWrap(82);
+    ChxGithubPreUtility.KeydownEvent.startCollapse(84);
 });

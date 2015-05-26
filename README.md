@@ -10,12 +10,19 @@
 
 Enabled to read github issues and gists with long comments without horizontal and vertical scrolling.
 
-### Chrome Extension
+## Chrome Extension
 
 Install from https://chrome.google.com/webstore/detail/github-pre-utility/ohbmbjnjnkbfnmilcpklobimhkbdcdjl.
 
 This extension uses the keys `r` to wrap pre/code tag and `t` to collapse pre tag.
 
-### Demo
+### Options
+
+- You can switch to work automatically (= without a key down) wrap and collapse with options page.
+- You can change character length to control first view of collapsed content.
+- You can change key codes to wrap and collapse with manually.
+ - Click any keys on http://semooh.jp/jquery/api/events/keydown/fn/demo-1/ to confirm a key code.
+
+## Demo
 
 http://yoheimuta.github.io/github-pre-utility
