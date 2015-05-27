@@ -61,38 +61,38 @@ ChxGithubPreUtility.Controller = (function() {
         var that = this;
 
         chrome.runtime.sendMessage({method: "getLocalStorage", key: "config"}, function(res) {
-            var config = JSON.parse(res.data);
-            if (config) {
-                var length = config.collapse_char_length;
-                if (length && 0 < length) {
-                    collapse_char_length = length;
-                }
+            if (res && res.data) {
+                var config = JSON.parse(res.data);
+                if (config) {
+                    var length = config.collapse_char_length;
+                    if (length && 0 < length) {
+                        collapse_char_length = length;
+                    }
 
-                var wrap_key = config.wrap_key_code;
-                if (wrap_key && 0 < wrap_key) {
-                    wrap_key_code = wrap_key;
-                }
+                    var wrap_key = config.wrap_key_code;
+                    if (wrap_key && 0 < wrap_key) {
+                        wrap_key_code = wrap_key;
+                    }
 
-                var collapse_key = config.collapse_key_code;
-                if (collapse_key && 0 < collapse_key) {
-                    collapse_key_code = collapse_key;
+                    var collapse_key = config.collapse_key_code;
+                    if (collapse_key && 0 < collapse_key) {
+                        collapse_key_code = collapse_key;
+                    }
                 }
             }
 
             chrome.runtime.sendMessage({method: "getLocalStorage", key: "wrap"}, function(res) {
-                if (res.data == "auto") {
+                if (res.data != "manual") {
                     that.wrap();
-                } else {
-                    ChxGithubPreUtility.KeydownEvent.startWrap(wrap_key_code);
                 }
+                ChxGithubPreUtility.KeydownEvent.startWrap(wrap_key_code);
             });
 
             chrome.runtime.sendMessage({method: "getLocalStorage", key: "collapse"}, function(res) {
-                if (res.data == "auto") {
+                if (res.data != "manual") {
                     that.collapse();
-                } else {
-                    ChxGithubPreUtility.KeydownEvent.startCollapse(collapse_key_code);
                 }
+                ChxGithubPreUtility.KeydownEvent.startCollapse(collapse_key_code);
             });
         });
     };
