@@ -6,17 +6,17 @@ ChxGithubPreUtility.KeydownEvent = (function() {
     KeydownEvent.startWrap = function(key_code) {
         $(window).keydown(function(e){
             if (e.keyCode == key_code) {
-                ChxGithubPreUtility.Controller.wrap();
+                ChxGithubPreUtility.Dom.wrap();
             }
 
             return true;
         });
     };
 
-    KeydownEvent.startCollapse = function(key_code) {
+    KeydownEvent.startCollapse = function(key_code, char_length) {
         $(window).keydown(function(e){
             if (e.keyCode == key_code) {
-                ChxGithubPreUtility.Controller.collapse();
+                ChxGithubPreUtility.Dom.collapse(char_length);
             }
 
             return true;
@@ -26,11 +26,34 @@ ChxGithubPreUtility.KeydownEvent = (function() {
     return KeydownEvent;
 })();
 
-ChxGithubPreUtility.Controller = (function() {
+ChxGithubPreUtility.Dom = (function() {
     function toggleCss(element, class_name) {
         $(element).toggleClass(class_name);
     }
 
+    var Dom = {};
+
+    Dom.wrap = function() {
+        var class_name = "chrome_extension_pre_wrap";
+        toggleCss("pre", class_name);
+        toggleCss("code", class_name);
+    };
+
+    Dom.collapse = function(char_length) {
+        var class_name = "chrome_extension_pre_collapse";
+        toggleCss("pre", class_name);
+
+        // TODO: not toggle
+        $(".chrome_extension_pre_collapse").collapser({
+            mode: "chars",
+            truncate: char_length
+        });
+    };
+
+    return Dom;
+})();
+
+ChxGithubPreUtility.Controller = (function() {
     var Controller = {};
     var collapse_char_length = 80;
 
@@ -40,25 +63,7 @@ ChxGithubPreUtility.Controller = (function() {
     // t key
     var collapse_key_code = 84;
 
-    Controller.wrap = function() {
-        var class_name = "chrome_extension_pre_wrap";
-        toggleCss("pre", class_name);
-        toggleCss("code", class_name);
-    };
-
-    Controller.collapse = function() {
-        var class_name = "chrome_extension_pre_collapse";
-        toggleCss("pre", class_name);
-
-        // TODO: not toggle
-        $(".chrome_extension_pre_collapse").collapser({
-            mode: "chars",
-            truncate: collapse_char_length
-        });
-    };
-
     Controller.run = function() {
-        var that = this;
 
         chrome.runtime.sendMessage({method: "getLocalStorage", key: "config"}, function(res) {
             if (res && res.data) {
@@ -83,16 +88,16 @@ ChxGithubPreUtility.Controller = (function() {
 
             chrome.runtime.sendMessage({method: "getLocalStorage", key: "wrap"}, function(res) {
                 if (res.data != "manual") {
-                    that.wrap();
+                    ChxGithubPreUtility.Dom.wrap();
                 }
                 ChxGithubPreUtility.KeydownEvent.startWrap(wrap_key_code);
             });
 
             chrome.runtime.sendMessage({method: "getLocalStorage", key: "collapse"}, function(res) {
                 if (res.data != "manual") {
-                    that.collapse();
+                    ChxGithubPreUtility.Dom.collapse(collapse_char_length);
                 }
-                ChxGithubPreUtility.KeydownEvent.startCollapse(collapse_key_code);
+                ChxGithubPreUtility.KeydownEvent.startCollapse(collapse_key_code, collapse_char_length);
             });
         });
     };
