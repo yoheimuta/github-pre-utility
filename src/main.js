@@ -3,22 +3,41 @@ var ChxGithubPreUtility = window.ChxGithubPreUtility = window.ChxGithubPreUtilit
 ChxGithubPreUtility.KeydownEvent = (function() {
     var KeydownEvent = {};
 
+    function _getFocusElement() {
+        var elem = $(document.activeElement);
+        if (!elem) {
+            return false;
+        }
+        if (elem.is("body")) {
+            return false;
+        }
+        return true;
+    }
+
     KeydownEvent.startWrap = function(key_code) {
         $(window).keydown(function(e){
-            if (e.keyCode == key_code) {
-                ChxGithubPreUtility.Dom.wrap();
+            if (e.keyCode != key_code) {
+                return true;
+            }
+            if (_getFocusElement()) {
+                return true;
             }
 
+            ChxGithubPreUtility.Dom.wrap();
             return true;
         });
     };
 
     KeydownEvent.startCollapse = function(key_code, char_length) {
         $(window).keydown(function(e){
-            if (e.keyCode == key_code) {
-                ChxGithubPreUtility.Dom.collapse(char_length);
+            if (e.keyCode != key_code) {
+                return true;
+            }
+            if (_getFocusElement()) {
+                return true;
             }
 
+            ChxGithubPreUtility.Dom.collapse(char_length);
             return true;
         });
     };
