@@ -58,15 +58,27 @@ ChxGithubPreUtility.Dom = (function() {
         toggleCss("code", class_name);
     };
 
+    var is_collapsed = false;
     Dom.collapse = function(char_length) {
         var class_name = "chrome_extension_pre_collapse";
-        toggleCss("pre", class_name);
 
-        // TODO: not toggle
-        $(".chrome_extension_pre_collapse").collapser({
-            mode: "chars",
-            truncate: char_length
-        });
+        if (!is_collapsed) {
+            toggleCss("pre", class_name);
+
+            $(".chrome_extension_pre_collapse").collapser({
+                mode: "chars",
+                truncate: char_length
+            });
+
+            is_collapsed = true;
+        } else {
+            $("a").each(function() {
+                var text = $(this).text();
+                if (text == "Show more" || text == "Hide text") {
+                    $(this).trigger("click");
+                }
+            });
+        }
     };
 
     return Dom;
