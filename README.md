@@ -25,4 +25,8 @@ This extension uses the keys `r` to wrap pre/code tag and `t` to collapse pre ta
 
 ## Demo
 
-http://yoheimuta.github.io/github-pre-utility
+Try this features at http://yoheimuta.github.io/github-pre-utility/ before installing it
+
+## Screenshot
+
+![](publish/readme/github-pre-utility.gif)
